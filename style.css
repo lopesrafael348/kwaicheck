@@ -1,0 +1,200 @@
+/* Importando uma fonte similar à do Kwai */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
+
+
+:root {
+    --kwai-orange: #FF7A00; /* Laranja característico do Kwai */
+    --kwai-black: #1C1C1E;   /* Um preto suave para textos */
+    --text-light: #8a8a8e;
+    --background-gray: #f1f1f2;
+    --border-color: #e0e0e0;
+}
+
+body {
+    background-color: #e9e9e9;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.phone-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+
+.app-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.tiktok-logo {
+    height: 32px;
+}
+
+.balance-container {
+    background-color: var(--background-gray);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--kwai-black);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.progress-bar-container {
+    width: calc(100% - 40px);
+    margin: 0 20px 10px 20px;
+    height: 5px;
+    background-color: var(--background-gray);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--kwai-orange);
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+.quiz-container {
+    padding: 10px 20px 20px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-progress {
+    color: var(--text-light);
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.question-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--kwai-black);
+    line-height: 1.3;
+    text-align: left;
+}
+
+.options-container .option {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option.selected {
+    border-color: var(--kwai-orange);
+    background-color: #fff5e6; /* Um laranja bem claro para o fundo */
+}
+
+.option-letter {
+    font-weight: 700;
+    margin-right: 15px;
+    width: 20px;
+    color: var(--kwai-black);
+}
+
+.option-text {
+    flex-grow: 1;
+    font-size: 16px;
+    color: var(--kwai-black);
+}
+
+.custom-radio {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.option.selected .custom-radio {
+    border-color: var(--kwai-orange);
+    background-color: var(--kwai-orange);
+}
+
+.custom-radio::after {
+    content: '✔';
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    display: none;
+}
+
+.option.selected .custom-radio::after {
+    display: block;
+}
+
+.popup-overlay, .final-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+.popup-overlay.show, .final-popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+.popup-content, .final-popup-content {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 85%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.popup-overlay.show .popup-content, .final-popup-overlay.show .final-popup-content {
+    animation: popup-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes popup-in {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.party-popper-icon { width: 70px; margin-bottom: 10px; }
+.popup-title { color: #4CAF50; font-size: 26px; font-weight: bold; margin: 0 0 10px; }
+.reward-text { font-size: 32px; font-weight: 700; color: #4CAF50; margin: 0; }
+.added-text, .new-balance-text { font-size: 16px; color: #333; margin: 5px 0; }
+.new-balance-text { margin-bottom: 25px; }
+.popup-next-button { background-color: var(--kwai-orange); color: white; border: none; padding: 14px; width: 100%; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+#quiz-container.hidden { display: none; }
+.final-popup-content { background-color: var(--kwai-orange); color: white; }
+.final-popup-content .popup-title { color: white; }
+.final-message { font-size: 20px; margin: 10px 0 0; }
+.final-amount { font-size: 52px; font-weight: 800; margin: 5px 0; }
+.thanks-message { font-size: 16px; margin-bottom: 30px; opacity: 0.9; }
+.reward-button { background-color: white; color: var(--kwai-orange); border: none; padding: 16px; width: 100%; border-radius: 10px; font-size: 18px; font-weight: 700; cursor: pointer; }

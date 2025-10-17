@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+:root {
+    --kwai-orange: #FF7A00;
+    --kwai-black: #1C1C1E;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.mobile-view {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Main Content --- */
+.content {
+    padding: 25px 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.main-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--kwai-black);
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.video-container {
+    width: 100%;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+}
+
+/* --- Footer com o Botão --- */
+.action-footer {
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.action-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background-color: var(--kwai-orange);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4);
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.action-button:hover {
+    background-color: #e66e00;
+}
+
+.footer-note {
+    font-size: 14px;
+    color: #777;
+    margin-top: 15px;
+    line-height: 1.5;
+}
